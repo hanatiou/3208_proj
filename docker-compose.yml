@@ -22,7 +22,7 @@ services:
       - 9000:9000
     volumes:
       - hadoop_namenode:/hadoop/dfs/name
-      - ./nbs:/home/nbs
+      - ./data:/home/data
     environment:
       - CLUSTER_NAME=test
     env_file:
@@ -166,7 +166,7 @@ services:
     ports:
         - "8888:8888"
     volumes:
-        - ./nbs:/home/jovyan/work/nbs
+        - ./data:/home/proj/data
         - ./events:/tmp/spark-events
-    command: bash -c "pip install gdown faiss-cpu && gdown --folder 1iQJWmgXNnFIVPDx9XlnXC5zkYybxB2re -O /home/proj; start-notebook.sh --ip=0.0.0.0 --allow-root --NotebookApp.token=''" 
+    command: bash -c "pip install gdown faiss-cpu && gdown --folder --id 1iQJWmgXNnFIVPDx9XlnXC5zkYybxB2re -O /home/proj/data; start-notebook.sh --ip=0.0.0.0 --allow-root --NotebookApp.token=''" 
 
